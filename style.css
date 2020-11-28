@@ -1,0 +1,27 @@
+body {
+  background-color: lightgray;
+}
+
+#app-container {
+  width: 600px;
+  background-color: white;
+  border: 3px solid darkgray;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+}
+
+.grocery-cart,
+.grocery-items {
+  width: 48%;
+  margin: 1%;
+}
+table {
+  border-spacing: 0;
+}
+table td {
+  border: 1px solid black;
+}
+button {
+  white-space: nowrap;
+}
