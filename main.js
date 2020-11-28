@@ -6,7 +6,7 @@ import App from "./components/App"
 import "./style.css"
 
 import { createStore } from "redux"
-import groceryCartReducer from "./store"
+import groceryCartReducer from "./redux/store"
 
 const store = createStore(groceryCartReducer)
 

@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import { addToCart as addToCartAction } from "../redux/actions"
 
 const GroceryItems = ({ items, addToCart }) => {
   return (
@@ -29,6 +30,6 @@ const GroceryItems = ({ items, addToCart }) => {
 
 const mapStateToProps = state => ({ items: state.items })
 const mapDispatchToProps = dispatch => ({
-  addToCart: item => dispatch({ type: "ADD_TO_CART", payload: item })
+  addToCart: item => dispatch(addToCartAction(item))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(GroceryItems)

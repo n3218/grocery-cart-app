@@ -1,12 +1,13 @@
-import React, { Component } from "react"
+import React from "react"
 import { connect } from "react-redux"
+import { removeFromCart } from "../redux/actions"
 
 const GroceryCart = ({ items, removeFromCart }) => {
   if (!items) {
-    return "Your cart is empry."
+    return "Your cart is empty."
   }
   const total = () => {
-    items.reduce((sum, item) => sum + item.price, 0)
+    return items.reduce((sum, item) => sum + item.price, 0)
   }
   return (
     <div className="grocery-cart">
@@ -21,7 +22,7 @@ const GroceryCart = ({ items, removeFromCart }) => {
           {items.map((item, i) => (
             <tr key={i}>
               <td>
-                <button onClick={() => removeFromCart(item)}>remove from cart</button>
+                <button onClick={() => removeFromCart(i)}>remove from cart</button>
               </td>
               <td>{item.price}</td>
               <td>{item.name}</td>
@@ -36,6 +37,6 @@ const GroceryCart = ({ items, removeFromCart }) => {
 
 const mapStateToProps = state => ({ items: state.cart })
 const mapDispatchToProps = dispatch => ({
-  removeFromCart: item => dispatch({ type: "REMOVE_FROM_CART", payload: item })
+  removeFromCart: index => dispatch(removeFromCart(index))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(GroceryCart)
